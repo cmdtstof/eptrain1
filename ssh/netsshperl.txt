@@ -1,0 +1,11 @@
+Net::SSH::Perl
+file:///home/stof/09_code/eprints/ssh/netsshperl.pl (31.07.13) 
+
+
+- stof@stof003:netsshperl.pl > stof@stof005 >>> ok (31.07.13)
+- - stof@stof003:netsshperl.pl > test@stof005 >>> permission Permission denied at netsshperl.pl line 13.
+- ssh test@stof005 >>> ok
+!!!!- ssh-keygen > authorized
+- ssh test@stof005 >>> ok ohne pwd
+- stof@stof003:netsshperl.pl > test@stof005 >>> ok
+
