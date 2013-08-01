@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w -­I/opt/eprints3/perl_lib
+#!/usr/bin/perl -w -I/opt/eprints3/perl_lib
 # Print the title of an eprint
 
 use EPrints;
@@ -19,16 +19,15 @@ my $session = new EPrints::Session( 1, $repositoryid );
 exit( 0 ) unless( defined $session );
 
 # Try creating eprint
-my $eprint = EPrints::DataObj::EPrint­>new( $session, $eprintid );
+my $eprint = EPrints::DataObj::EPrint->new( $session, $eprintid );
 if( !defined $eprint )
 {
 print "$eprintid not found.\n";
 }
 else
 {
-print $eprint­>get_value( "title" )."\n";
+print $eprint->get_value( "title" )."\n";
 }
 
 # End Session
-$session­>terminate();
- 
+$session->terminate();
