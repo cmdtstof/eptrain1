@@ -1,18 +1,28 @@
-#!/usr/bin/perl -w -I/opt/eprints2/perl_lib
+#!/usr/bin/perl -w -I/opt/eprints3/perl_lib
 # Deposit an eprint in the archive
 
-use EPrints::Session;
+
+#Called deprecated function EPrints::EPrint::create !!!!!!!
+#not working on 3.4.9
+
+
+
+use EPrints;
 use strict;
 
 # Start session
-my $session = new EPrints::Session( 1, 'myid' );
+my $session = new EPrints::Session( 1, "eprints1" );
 exit( 0 ) unless( defined $session );
 
 # Get archive dataset
 my $dataset = $session->get_archive->get_dataset( "archive" );
 
 # Create new eprint
+#Called deprecated function EPrints::EPrint::create !!!!!!!
 my $eprint = EPrints::EPrint::create( $session, $dataset );
+
+
+
 $eprint->datestamp();
 $eprint->set_value( "title", "Hello World" );
 $eprint->set_value( "creators", 
