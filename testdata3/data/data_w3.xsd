@@ -1,0 +1,170 @@
+<!--erstellt in oxygen -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://eprints.org/ep2/data/2.0" xmlns:data="http://eprints.org/ep2/data/2.0">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:element name="eprint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="data:eprintid"/>
+        <xs:element ref="data:rev_number"/>
+        <xs:element ref="data:eprint_status"/>
+        <xs:element ref="data:userid"/>
+        <xs:element ref="data:dir"/>
+        <xs:element ref="data:datestamp"/>
+        <xs:element ref="data:lastmod"/>
+        <xs:element ref="data:status_changed"/>
+        <xs:element ref="data:type"/>
+        <xs:element ref="data:metadata_visibility"/>
+        <xs:element ref="data:creators_name"/>
+        <xs:element ref="data:title"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="data:latitude"/>
+          <xs:element ref="data:longitude"/>
+        </xs:sequence>
+        <xs:element ref="data:ispublished"/>
+        <xs:element ref="data:subjects"/>
+        <xs:element minOccurs="0" ref="data:divisions"/>
+        <xs:element ref="data:full_text_status"/>
+        <xs:element minOccurs="0" ref="data:pres_type"/>
+        <xs:element ref="data:abstract"/>
+        <xs:element ref="data:date"/>
+        <xs:choice>
+          <xs:sequence>
+            <xs:element ref="data:publication"/>
+            <xs:element ref="data:volume"/>
+            <xs:element ref="data:number"/>
+            <xs:element ref="data:publisher"/>
+            <xs:element ref="data:pagerange"/>
+            <xs:element ref="data:refereed"/>
+          </xs:sequence>
+          <xs:sequence>
+            <xs:element ref="data:event_title"/>
+            <xs:element ref="data:event_location"/>
+            <xs:element ref="data:event_dates"/>
+          </xs:sequence>
+        </xs:choice>
+        <xs:element ref="data:fileinfo"/>
+        <xs:element ref="data:documents"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="eprint_status" type="xs:NCName"/>
+  <xs:element name="userid" type="xs:integer"/>
+  <xs:element name="dir" type="xs:string"/>
+  <xs:element name="datestamp" type="xs:string"/>
+  <xs:element name="lastmod" type="xs:string"/>
+  <xs:element name="status_changed" type="xs:string"/>
+  <xs:element name="type" type="xs:NCName"/>
+  <xs:element name="metadata_visibility" type="xs:NCName"/>
+  <xs:element name="creators_name">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="data:item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="latitude" type="xs:decimal"/>
+  <xs:element name="longitude" type="xs:decimal"/>
+  <xs:element name="ispublished" type="xs:NCName"/>
+  <xs:element name="subjects">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="data:item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="divisions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="data:item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="full_text_status" type="xs:NCName"/>
+  <xs:element name="pres_type" type="xs:NCName"/>
+  <xs:element name="abstract" type="xs:string"/>
+  <xs:element name="date" type="xs:NMTOKEN"/>
+  <xs:element name="publication" type="xs:string"/>
+  <xs:element name="volume" type="xs:integer"/>
+  <xs:element name="number" type="xs:integer"/>
+  <xs:element name="publisher" type="xs:string"/>
+  <xs:element name="pagerange" type="xs:NMTOKEN"/>
+  <xs:element name="refereed" type="xs:NCName"/>
+  <xs:element name="event_title" type="xs:string"/>
+  <xs:element name="event_location" type="xs:string"/>
+  <xs:element name="event_dates" type="xs:string"/>
+  <xs:element name="fileinfo" type="xs:string"/>
+  <xs:element name="documents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="data:document"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="document">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="data:docid"/>
+        <xs:element ref="data:rev_number"/>
+        <xs:element ref="data:eprintid"/>
+        <xs:element ref="data:pos"/>
+        <xs:element ref="data:mime_type"/>
+        <xs:element ref="data:format"/>
+        <xs:element ref="data:language"/>
+        <xs:element ref="data:security"/>
+        <xs:element ref="data:main"/>
+        <xs:element ref="data:files"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="docid" type="xs:integer"/>
+  <xs:element name="pos" type="xs:integer"/>
+  <xs:element name="mime_type" type="xs:string"/>
+  <xs:element name="format" type="xs:NCName"/>
+  <xs:element name="language" type="xs:NCName"/>
+  <xs:element name="security" type="xs:NCName"/>
+  <xs:element name="main" type="xs:NCName"/>
+  <xs:element name="files">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="data:file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="file">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="data:filename"/>
+        <xs:element ref="data:filesize"/>
+        <xs:element ref="data:url"/>
+        <xs:element ref="data:data"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="filename" type="xs:NCName"/>
+  <xs:element name="filesize" type="xs:integer"/>
+  <xs:element name="url" type="xs:anyURI"/>
+  <xs:element name="data">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:base64Binary">
+          <xs:attribute name="encoding" use="required" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="eprintid" type="xs:integer"/>
+  <xs:element name="rev_number" type="xs:integer"/>
+  <xs:element name="item">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="data:family"/>
+        <xs:element ref="data:given"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="family" type="xs:string"/>
+  <xs:element name="given" type="xs:NCName"/>
+</xs:schema>

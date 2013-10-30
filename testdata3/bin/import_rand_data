@@ -102,7 +102,7 @@ exit( 1 ) unless( defined $session );
 my $db = $session->get_database;
 
 $datasetid = "archive" unless defined $datasetid;
-$total ||= 1000;
+$total ||= 1000; #??? || ist ein or; "||=" ist ein assignment operator. was wird assignet???
 
 # Basic data
 our @TYPES = @{$session->get_repository->{types}->{eprint}};
@@ -110,7 +110,7 @@ our @SUBJECTS = read_subjects( $session, "subjects" );
 our @PUBLICATIONS;
 for(1..100)
 {
-	push @PUBLICATIONS, $lorem->sentences(1);
+	push @PUBLICATIONS, $lorem->sentences(1); # push array, list >>> list wird an array angehängt. array vergrössert sich um länge von list.
 }
 our @PUBLISHERS;
 for(1..10)
